@@ -1,0 +1,135 @@
+.menu-containt {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  list-style: none;
+  font-size: 1.2rem;
+  font-weight: bolder;
+  flex-direction: row;
+  justify-content: space-around;
+  font-family: playfair-display;
+  color: rgba(7, 72, 74, 1);
+}
+.menu {
+  width: 70%;
+}
+li {
+  color: rgba(7, 72, 74, 1);
+  text-decoration: none;
+  transition: 1s ease-in-out;
+  -webkit-transition: 1s ease-in-out;
+  -moz-transition: 1s ease-in-out;
+  -ms-transition: 1s ease-in-out;
+  -o-transition: 1s ease-in-out;
+}
+.link {
+  text-decoration: none;
+}
+.mobile {
+  display: none;
+}
+.menu-containt li {
+  list-style: none;
+  position: relative;
+}
+.link:hover,
+.link .active {
+  color: rgba(7, 72, 74, 1);
+}
+li:hover::after,
+li.active::after {
+  content: "";
+  width: 50%;
+  height: 3px;
+  bottom: -2px;
+  background-color: rgba(7, 72, 74, 1);
+  position: absolute;
+  left: 2px;
+}
+.right-con {
+  display: flex;
+  align-items: center;
+  width: 13%;
+  justify-content: space-between;
+}
+.navLi {
+  width: 60%;
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+}
+
+@media screen and (max-width: 850px) {
+  /* .menu-containt {
+    background-color: aqua;
+  } */
+  .navLi {
+    width: 70%;
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    padding: 0;
+    font-size: 1rem;
+  }
+}
+@media screen and (max-width: 725px) {
+  .menu-containt {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    justify-content: start;
+    position: fixed;
+    top: 3rem;
+    width: 50vw;
+    height: 100vh;
+    right: -70vw;
+    background-color: rgb(213, 243, 243);
+    padding: 2rem 2rem;
+    box-shadow: 0, 40px, 60px rgba(0, 0, 0, 0.1);
+    gap: 1rem;
+
+    transition: 1s ease-in-out;
+    -webkit-transition: 1s ease-in-out;
+    -moz-transition: 1s ease-in-out;
+    -ms-transition: 1s ease-in-out;
+    -o-transition: 1s ease-in-out;
+  }
+  .menu {
+    width: 38%;
+  }
+  .right-con {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+  }
+  .navLi {
+    width: 80%;
+    display: flex;
+    text-align: start;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0;
+    gap: 0.5rem;
+    padding: 0;
+  }
+  .active {
+    right: 0;
+  }
+  .mobile {
+    display: block;
+    padding: 0 1rem 0 6rem;
+  }
+  .mobile i {
+    font-size: 2rem;
+  }
+  .menu ul {
+    transition: 0.3s ease-in-out;
+    -webkit-transition: 0.5s ease-in-out;
+    -moz-transition: 0.3s ease-in-out;
+    -ms-transition: 0.3s ease-in-out;
+    -o-transition: 0.3s ease-in-out;
+  }
+}
