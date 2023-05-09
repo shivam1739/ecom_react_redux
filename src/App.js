@@ -4,7 +4,6 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import HomeScreen from "./screens/HomeScreen";
 import ProductScreen from "./screens/ProductScreen";
 import CartScreen from "./screens/CartScreen";
-import RegisterScreen from "./screens/RegisterScreen";
 import ShippingScreen from "./screens/ShippingScreen";
 import PaymentScreen from "./screens/PaymentScreen";
 import PlaceOrderScreen from "./screens/PlaceOrderScreen";
@@ -15,6 +14,7 @@ import SigninScreen from "./screens/SigninScreen";
 import ProductsScreen from "./screens/ProductsScreen";
 import Footer from "./components/footer/Footer";
 import Header from "./components/header/Header";
+import RegisterScreen from "./screens/registerScreen/RegisterScreen";
 
 function App() {
   return (

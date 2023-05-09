@@ -1,7 +1,7 @@
-import React, { memo, useEffect } from "react";
+import React, { memo } from "react";
 
 const Button = ({ props }) => {
-  return <Button></Button>;
+  return <button onClick={props.handleClick}>{props.name}</button>;
 };
 
 export default memo(Button);
