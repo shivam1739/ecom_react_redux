@@ -1,5 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.css";
+import { FiMenu } from "react-icons/fi";
+import { AiOutlineClose } from "react-icons/ai";
+
 import "./header.css";
 import { BiSearchAlt2 } from "react-icons/bi";
 import { IoMdCart } from "react-icons/io";
@@ -7,6 +10,8 @@ import { HiUserCircle } from "react-icons/hi";
 import { NavLink } from "react-router-dom";
 
 const Header = () => {
+  const [isMenu, setMenu] = useState(false);
+
   return (
     <nav
       className="w-100  h-3 d-flex header-wrapper justify-content-around align-items-center  "
@@ -19,30 +24,41 @@ const Header = () => {
         <h1>logo</h1>
       </div>
 
-      <div className=" w-50  h-100  ">
-        <ul
-          className=" m-0 p-0 d-flex h-100 justify-content-between align-items-center list-unstyled fw-bolder fs-5  "
-          style={{
-            fontFamily: "playfair-display",
-          }}
-        >
-          <NavLink className="text-decoration-none  " to="/home">
-            <li>Home</li>
-          </NavLink>
+      <div className="menu">
+        <div className={isMenu ? "menu-containt active" : "menu-containt"}>
+          <ul className="navLi">
+            <NavLink className="link" to="/home">
+              <li>Home</li>
+            </NavLink>
+            <NavLink className="link" to="/poroducts">
+              <li>Products</li>
+            </NavLink>
+            <NavLink className="link" to="">
+              <li>Categories</li>
+            </NavLink>
+            <NavLink className="link" to="">
+              <li>About</li>
+            </NavLink>
+            <NavLink className="link" to="">
+              <li>Countact Us</li>
+            </NavLink>
+          </ul>
+          <div className="right-con">
+            <BiSearchAlt2 />
+            <IoMdCart />
+            <HiUserCircle />
+          </div>
+        </div>
 
-          <li>Products</li>
-          <li>Categories</li>
-          <li>About</li>
-          <li>Countact Us</li>
-        </ul>
-      </div>
-      <div
-        className=" d-flex justify-content-between playfair-display "
-        style={{ width: "7%" }}
-      >
-        <BiSearchAlt2 />
-        <IoMdCart />
-        <HiUserCircle />
+        <div className="mobile">
+          <i onClick={() => setMenu(!isMenu)}>
+            {isMenu ? (
+              <AiOutlineClose color="rgba(7, 72, 74, 1)" />
+            ) : (
+              <FiMenu color="rgba(7, 72, 74, 1)" />
+            )}
+          </i>
+        </div>
       </div>
     </nav>
   );

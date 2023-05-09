@@ -14,6 +14,7 @@ import NotFoundScreen from "./screens/NotFoundScreen";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer";
 import SigninScreen from "./screens/SigninScreen";
+import ProductsScreen from "./screens/ProductsScreen";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
             exact
             element={<HomeScreen />}
           />
+          <Route path="/poroducts" element={<ProductsScreen />} />
           <Route path="/product/:id" element={<ProductScreen />} />
           <Route path="/cart/:id?" element={<CartScreen />} />
           <Route path="/register" element={<RegisterScreen />} />
