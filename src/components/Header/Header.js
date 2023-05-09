@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import { FiMenu } from "react-icons/fi";
 import { AiOutlineClose } from "react-icons/ai";
-
+import { BACKGROUND_COLOR, PRIMARY_COLOR } from "../../utils/assets";
 import "./header.css";
 import { BiSearchAlt2 } from "react-icons/bi";
 import { IoMdCart } from "react-icons/io";
@@ -14,10 +14,9 @@ const Header = () => {
 
   return (
     <nav
-      className="w-100  h-3 d-flex header-wrapper justify-content-around align-items-center  "
       style={{
-        backgroundColor: "rgba(196,196,196,1",
-        color: "rgba(7,72,74,1)",
+        backgroundColor: BACKGROUND_COLOR,
+        color: PRIMARY_COLOR,
       }}
     >
       <div className="w-20">
