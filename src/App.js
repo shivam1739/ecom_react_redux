@@ -11,10 +11,10 @@ import PlaceOrderScreen from "./screens/PlaceOrderScreen";
 import OrderScreen from "./screens/OrderScreen";
 import ProfileScreen from "./screens/ProfileScreen";
 import NotFoundScreen from "./screens/NotFoundScreen";
-import Header from "./components/Header/Header";
-import Footer from "./components/Footer";
 import SigninScreen from "./screens/SigninScreen";
 import ProductsScreen from "./screens/ProductsScreen";
+import Footer from "./components/footer/Footer";
+import Header from "./components/header/Header";
 
 function App() {
   return (

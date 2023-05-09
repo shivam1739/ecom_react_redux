@@ -1,3 +1,11 @@
+nav {
+  width: 100vw;
+  font-size: 1rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
 .menu-containt {
   width: 100%;
   margin: 0;
@@ -7,9 +15,8 @@
   font-size: 1.2rem;
   font-weight: bolder;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   font-family: playfair-display;
-  color: rgba(7, 72, 74, 1);
 }
 .menu {
   width: 70%;
@@ -17,11 +24,11 @@
 li {
   color: rgba(7, 72, 74, 1);
   text-decoration: none;
-  transition: 1s ease-in-out;
-  -webkit-transition: 1s ease-in-out;
-  -moz-transition: 1s ease-in-out;
-  -ms-transition: 1s ease-in-out;
-  -o-transition: 1s ease-in-out;
+  transition: 0.3s ease-in-out;
+  -webkit-transition: 0.3s ease-in-out;
+  -moz-transition: 0.3s ease-in-out;
+  -ms-transition: 0.3s ease-in-out;
+  -o-transition: 0.3s ease-in-out;
 }
 .link {
   text-decoration: none;
@@ -37,12 +44,14 @@ li {
 .link .active {
   color: rgba(7, 72, 74, 1);
 }
-li:hover::after,
-li.active::after {
+
+.menu-containt li:hover::after,
+.menu-containt li.active::after {
   content: "";
   width: 50%;
   height: 3px;
   bottom: -2px;
+
   background-color: rgba(7, 72, 74, 1);
   position: absolute;
   left: 2px;
@@ -54,7 +63,7 @@ li.active::after {
   justify-content: space-between;
 }
 .navLi {
-  width: 60%;
+  width: 69%;
   display: flex;
   justify-content: space-between;
   margin: 0;
