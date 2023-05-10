@@ -41,14 +41,14 @@ form {
   left: 5px;
   background: linear-gradient(to top, white, #caf3e5);
 }
-.navLink:hover,
-.navLink:active {
-  color: inherit;
-}
 .error {
   color: red;
   font-size: 10px;
   text-align: start;
+}
+.navLink:hover,
+.navLink:active {
+  color: inherit;
 }
 
 @media screen and (max-width: 850px) {
@@ -102,4 +102,8 @@ form {
     flex-direction: column;
     background-color: #caf3e5;
   }
+}
+.navLink {
+  color: inherit;
+  text-decoration: none;
 }

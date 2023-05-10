@@ -1,18 +1,15 @@
+import "./signInScreen.css";
 import React, { useState } from "react";
 import Input from "../../components/input/Input";
 import Button from "../../components/button/Button";
-import "./registerScreen.css";
 import { PRIMARY_COLOR } from "../../utils/assets";
 import { NavLink } from "react-router-dom";
-
-const RegisterScreen = () => {
+const SigninScreen = () => {
   const initialState = {
-    name: "",
     email: "",
     password: "",
   };
   const initError = {
-    nameError: "",
     emailError: "",
     passwordError: "",
   };
@@ -48,21 +45,6 @@ const RegisterScreen = () => {
         <h1>Logo</h1>
 
         <div className="field">
-          <label>Name</label>
-          <Input
-            props={{
-              type: "text",
-              name: "name",
-              placeholder: "Name",
-              value: userData.name,
-              setValue: handleChange,
-            }}
-          />
-          <p className="error" name="nameError">
-            {error.nameError}
-          </p>
-        </div>
-        <div className="field">
           <label>Email</label>
           <Input
             props={{
@@ -94,8 +76,8 @@ const RegisterScreen = () => {
 
         <Button props={{ name: "signUp", handleClick: handleSignUp }} />
         <p className="swithchLogin">
-          <NavLink className="navLink" to="/signIn">
-            alrady have an account?login
+          <NavLink className="navLink" to="/register">
+            don't have an account?SignUp
           </NavLink>
         </p>
 
@@ -105,4 +87,4 @@ const RegisterScreen = () => {
   );
 };
 
-export default RegisterScreen;
+export default SigninScreen;

@@ -10,11 +10,11 @@ import PlaceOrderScreen from "./screens/PlaceOrderScreen";
 import OrderScreen from "./screens/OrderScreen";
 import ProfileScreen from "./screens/ProfileScreen";
 import NotFoundScreen from "./screens/NotFoundScreen";
-import SigninScreen from "./screens/SigninScreen";
 import ProductsScreen from "./screens/ProductsScreen";
 import Footer from "./components/footer/Footer";
 import Header from "./components/header/Header";
 import RegisterScreen from "./screens/registerScreen/RegisterScreen";
+import SigninScreen from "./screens/signInScreen/SigninScreen";
 
 function App() {
   return (
@@ -23,7 +23,7 @@ function App() {
         <Header />
 
         <Routes>
-          <Route path="/" element={<SigninScreen />} />
+          <Route path="/signIn" element={<SigninScreen />} />
           <Route path="/home" element={<HomeScreen />} />
           <Route path="/search/:keyword" element={<HomeScreen />} />
           <Route path="/page/:pageNumber" element={<HomeScreen />} />

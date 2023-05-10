@@ -1,0 +1,25 @@
+.searchPopUp {
+  width: 55%;
+  height: 3.5rem;
+  position: absolute;
+  bottom: -4rem;
+  background-color: rgba(7, 72, 74, 1);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 30px;
+}
+
+@media screen and (max-width: 725px) {
+  .searchPopUp {
+    width: 95%;
+    height: 3rem;
+    position: absolute;
+    bottom: -4rem;
+    background-color: rgba(7, 72, 74, 1);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 30px;
+  }
+}
