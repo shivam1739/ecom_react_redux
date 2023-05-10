@@ -8,15 +8,19 @@ import { BiSearchAlt2 } from "react-icons/bi";
 import { IoMdCart } from "react-icons/io";
 import { HiUserCircle } from "react-icons/hi";
 import { NavLink } from "react-router-dom";
+import SearchPopUp from "../searchPopUp/SearchPopUp";
 
 const Header = () => {
   const [isMenu, setMenu] = useState(false);
+  const [searchBar, setSearchBar] = useState(false);
 
   return (
     <nav
       style={{
         backgroundColor: BACKGROUND_COLOR,
         color: PRIMARY_COLOR,
+        position: "fixed",
+        top: "0",
       }}
     >
       <div className="w-20">
@@ -43,14 +47,22 @@ const Header = () => {
             </NavLink>
           </ul>
           <div className="right-con">
-            <BiSearchAlt2 />
-            <IoMdCart />
-            <HiUserCircle />
+            <BiSearchAlt2
+              className="icon"
+              onClick={() => setSearchBar(!searchBar)}
+            />
+            <IoMdCart className="icon" />
+            <HiUserCircle className="icon" />
           </div>
         </div>
 
         <div className="mobile">
-          <i onClick={() => setMenu(!isMenu)}>
+          <i
+            onClick={() => {
+              setMenu(!isMenu);
+              setSearchBar(false);
+            }}
+          >
             {isMenu ? (
               <AiOutlineClose color="rgba(7, 72, 74, 1)" />
             ) : (
@@ -59,6 +71,12 @@ const Header = () => {
           </i>
         </div>
       </div>
+      {searchBar ? (
+        <SearchPopUp
+          onSubmit={() => console.log("bvjvkonBlur")}
+          props={{ setSearchBar }}
+        />
+      ) : null}
     </nav>
   );
 };

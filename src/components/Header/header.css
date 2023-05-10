@@ -5,6 +5,7 @@ nav {
   justify-content: space-around;
   align-items: center;
   position: fixed;
+  top: 0;
 }
 
 .menu-containt {
@@ -62,6 +63,18 @@ li {
   align-items: center;
   width: 13%;
   justify-content: space-between;
+  cursor: pointer;
+}
+.icon:hover,
+.icon:active {
+  scale: 1.5;
+  color: white;
+  background: black;
+  border-radius: 51%;
+  -webkit-border-radius: 51%;
+  -moz-border-radius: 51%;
+  -ms-border-radius: 51%;
+  -o-border-radius: 51%;
 }
 .navLi {
   width: 69%;
@@ -75,6 +88,16 @@ li {
   /* .menu-containt {
     background-color: aqua;
   } */
+  nav {
+    width: 100vw;
+    font-size: 1rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    top: 0;
+  }
+
   .navLi {
     width: 70%;
     display: flex;
@@ -85,6 +108,16 @@ li {
   }
 }
 @media screen and (max-width: 725px) {
+  nav {
+    width: 100vw;
+    font-size: 1rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    position: fixed;
+    z-index: 11;
+    top: 0;
+  }
   .menu-containt {
     display: flex;
     flex-direction: column-reverse;
