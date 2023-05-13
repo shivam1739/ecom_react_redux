@@ -4,6 +4,7 @@ import Button from "../../components/button/Button";
 import "./registerScreen.css";
 import { PRIMARY_COLOR } from "../../utils/assets";
 import { NavLink } from "react-router-dom";
+import { userAuthRegister } from "../../services/auth.services";
 
 const RegisterScreen = () => {
   const initialState = {
@@ -25,7 +26,7 @@ const RegisterScreen = () => {
     setUserDate({ ...userData, [name]: value });
   };
 
-  const handleSignUp = (e) => {
+  const handleSignUp = async (e) => {
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
     const passRegex = /^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]{8,}$/;
     e.preventDefault();
@@ -40,6 +41,9 @@ const RegisterScreen = () => {
       return;
     }
     console.log(userData);
+
+    const response = await userAuthRegister(userData);
+    console.log(response, "response from auth.js");
   };
 
   return (
