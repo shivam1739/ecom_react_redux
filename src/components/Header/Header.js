@@ -58,7 +58,9 @@ const Header = () => {
               className="icon"
               onClick={() => setUserPopup(!isUserPopup)}
             />
-            {isUserPopup ? <UserPopup /> : null}
+            {isUserPopup ? (
+              <UserPopup props={{ setUserPopup, setMenu }} />
+            ) : null}
           </div>
         </div>
 
@@ -67,6 +69,7 @@ const Header = () => {
             onClick={() => {
               setMenu(!isMenu);
               setSearchBar(false);
+              setUserPopup(false);
             }}
           >
             {isMenu ? (

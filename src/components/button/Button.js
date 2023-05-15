@@ -15,6 +15,7 @@ const Button = ({ props }) => {
           border: "none",
         }
       }
+      id="btn"
       onClick={props.handleClick}
     >
       {props.name}
