@@ -1,0 +1,26 @@
+.userpop {
+  position: absolute;
+  width: 10rem;
+  height: 7rem;
+  background-color: white;
+  border: solid;
+  right: 3rem;
+  top: 4rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: self-start;
+  flex-direction: column;
+  padding: 0 1rem;
+  z-index: 1111;
+}
+Button {
+  background-color: black;
+  color: white;
+}
+
+@media screen and (max-width: 850px) {
+  .userpop {
+    width: 80%;
+    right: 1.35rem;
+  }
+}
