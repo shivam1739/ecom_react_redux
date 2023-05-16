@@ -58,11 +58,9 @@ const Header = () => {
               className="icon"
               onClick={() => setUserPopup(!isUserPopup)}
             />
-            {isUserPopup ? (
-              <UserPopup props={{ setUserPopup, setMenu }} />
-            ) : null}
           </div>
         </div>
+        {isUserPopup ? <UserPopup props={{ setUserPopup, setMenu }} /> : null}
 
         <div className="mobile">
           <i

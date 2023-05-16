@@ -5,6 +5,8 @@ import "./registerScreen.css";
 import { PRIMARY_COLOR } from "../../utils/assets";
 import { NavLink } from "react-router-dom";
 import { userAuthRegister } from "../../services/auth.services";
+import Loading from "../../components/loading/Loading";
+import Toaster from "../../components/toaster/Toaster";
 
 const RegisterScreen = () => {
   const initialState = {
@@ -47,65 +49,68 @@ const RegisterScreen = () => {
   };
 
   return (
-    <div className="main_signUp_con">
-      <form style={{ border: `solid ${PRIMARY_COLOR}` }}>
-        <h1>Logo</h1>
+    <>
+      <Toaster props={{ error: "success" }} />
+      <div className="main_signUp_con">
+        <form style={{ border: `solid ${PRIMARY_COLOR}` }}>
+          <h1>Logo</h1>
 
-        <div className="field">
-          <label>Name</label>
-          <Input
-            props={{
-              type: "text",
-              name: "name",
-              placeholder: "Name",
-              value: userData.name,
-              setValue: handleChange,
-            }}
-          />
-          <p className="error" name="nameError">
-            {error.nameError}
+          <div className="field">
+            <label>Name</label>
+            <Input
+              props={{
+                type: "text",
+                name: "name",
+                placeholder: "Name",
+                value: userData.name,
+                setValue: handleChange,
+              }}
+            />
+            <p className="error" name="nameError">
+              {error.nameError}
+            </p>
+          </div>
+          <div className="field">
+            <label>Email</label>
+            <Input
+              props={{
+                type: "email",
+                name: "email",
+                placeholder: "Email",
+                value: userData.email,
+                setValue: handleChange,
+              }}
+            />
+            <p className="error" name="emailError">
+              {error.emailError}
+            </p>
+          </div>
+
+          <div className="field">
+            <label>Password</label>
+            <Input
+              props={{
+                type: "password",
+                name: "password",
+                placeholder: "password",
+                value: userData.password,
+                setValue: handleChange,
+              }}
+            />
+            <p className="error">{error.passwordError}</p>
+          </div>
+
+          <Button props={{ name: "signUp", handleClick: handleSignUp }} />
+          <p className="swithchLogin">
+            <NavLink className="navLink" to="/signIn">
+              alrady have an account?login
+            </NavLink>
           </p>
-        </div>
-        <div className="field">
-          <label>Email</label>
-          <Input
-            props={{
-              type: "email",
-              name: "email",
-              placeholder: "Email",
-              value: userData.email,
-              setValue: handleChange,
-            }}
-          />
-          <p className="error" name="emailError">
-            {error.emailError}
-          </p>
-        </div>
 
-        <div className="field">
-          <label>Password</label>
-          <Input
-            props={{
-              type: "password",
-              name: "password",
-              placeholder: "password",
-              value: userData.password,
-              setValue: handleChange,
-            }}
-          />
-          <p className="error">{error.passwordError}</p>
-        </div>
-
-        <Button props={{ name: "signUp", handleClick: handleSignUp }} />
-        <p className="swithchLogin">
-          <NavLink className="navLink" to="/signIn">
-            alrady have an account?login
-          </NavLink>
-        </p>
-
-        {/* <button></button> */}
-      </form>
-    </div>
+          {/* <button></button> */}
+        </form>
+      </div>
+    </>
   );
 };
 

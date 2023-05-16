@@ -3,7 +3,7 @@
   width: 10rem;
   height: 7rem;
   background-color: white;
-  border: solid;
+  border-radius: 5px;
   right: 3rem;
   top: 4rem;
   display: flex;
@@ -12,15 +12,23 @@
   flex-direction: column;
   padding: 0 1rem;
   z-index: 1111;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  box-shadow: -1px 2px 5px black;
 }
-Button {
-  background-color: black;
-  color: white;
+
+.userIcon {
+  font-family: playfair-display;
+  font-style: normal;
+  font-weight: bolder;
 }
 
 @media screen and (max-width: 850px) {
   .userpop {
-    width: 80%;
+    width: 9rem;
+    top: 7rem;
     right: 1.35rem;
   }
 }

@@ -1,0 +1,18 @@
+#error {
+  border-bottom: solid red 3px;
+}
+#message {
+  border-bottom: solid green 5px;
+}
+.toaster {
+  width: 8rem;
+  font-size: 1.5rem;
+  height: 5rem;
+  border: solid black 1px;
+  top: 5rem;
+  position: absolute;
+  right: 3rem;
+}
+.toaster > h3 {
+  font-size: 1.5rem;
+}
