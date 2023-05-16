@@ -74,7 +74,7 @@ const SigninScreen = () => {
           <p className="error">{error.passwordError}</p>
         </div>
 
-        <Button props={{ name: "signUp", handleClick: handleSignUp }} />
+        <Button props={{ name: "Login", handleClick: handleSignUp }} />
         <p className="swithchLogin">
           <NavLink className="navLink" to="/register">
             don't have an account?SignUp

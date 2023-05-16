@@ -6,7 +6,7 @@ import { BUTTON_COLOR } from "../../utils/assets";
 import { useNavigate } from "react-router-dom";
 
 const UserPopup = ({ props }) => {
-  const [btn, setBtn] = useState(() => false);
+  const [btnLogin, setBtn] = useState(() => false);
   const navigate = useNavigate();
 
   const btnStyle = {
@@ -21,19 +21,25 @@ const UserPopup = ({ props }) => {
   };
 
   const handleClick = () => {
-    if (!btn) {
+    if (!btnLogin) {
       navigate("/signIn");
+    } else {
+      localStorage.clear();
     }
     props.setUserPopup(false);
     props.setMenu(false);
   };
   return (
     <div className="userpop">
-      <li>
+      <i className="userIcon">
         <FaUserEdit /> Edit profile
-      </li>
+      </i>
       <Button
-        props={{ handleClick, name: btn ? "Logout" : "Login", style: btnStyle }}
+        props={{
+          handleClick,
+          name: btnLogin ? "Logout" : "Login",
+          style: btnStyle,
+        }}
       />
     </div>
   );
