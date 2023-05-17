@@ -4,6 +4,8 @@ import Input from "../../components/input/Input";
 import Button from "../../components/button/Button";
 import { PRIMARY_COLOR } from "../../utils/assets";
 import { NavLink } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+
 const SigninScreen = () => {
   const initialState = {
     email: "",
@@ -13,29 +15,38 @@ const SigninScreen = () => {
     emailError: "",
     passwordError: "",
   };
+  const { loading, error, message, userInfo } = useSelector(
+    (state) => state.authReducer
+  );
   const [userData, setUserDate] = useState(initialState);
-  const [error, setError] = useState(initError);
+  const [validationError, setValidationError] = useState(initError);
 
   const handleChange = (e) => {
-    setError(initError);
+    setValidationError(initError);
     const { name, value } = e.target;
     setUserDate({ ...userData, [name]: value });
   };
 
-  const handleSignUp = (e) => {
+  const formValidation = (e) => {
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    const passRegex = /^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]{8,}$/;
+    const passRegex =
+      /^(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,20}$/;
     e.preventDefault();
-    if (userData.name.trim().length < 2) {
-      setError({ nameError: "* name should not be empty" });
-      return;
-    } else if (!emailRegex.test(userData.email.trim())) {
-      setError({ emailError: "* invalid email" });
-      return;
+    if (!emailRegex.test(userData.email.trim())) {
+      setValidationError({ nameError: "* name should not be empty" });
+      return false;
     } else if (!passRegex.test(userData.password.trim())) {
-      setError({ passwordError: "* atleast min 8char and alphanumeric" });
+      setValidationError({ emailError: "* invalid email" });
+      return false;
+    }
+    return true;
+  };
+
+  const handleSignUp = (e) => {
+    if (!formValidation(e)) {
       return;
     }
+
     console.log(userData);
   };
 
@@ -56,7 +67,7 @@ const SigninScreen = () => {
             }}
           />
           <p className="error" name="emailError">
-            {error.emailError}
+            {validationError.emailError}
           </p>
         </div>
 
@@ -71,7 +82,7 @@ const SigninScreen = () => {
               setValue: handleChange,
             }}
           />
-          <p className="error">{error.passwordError}</p>
+          <p className="error">{validationError.passwordError}</p>
         </div>
 
         <Button props={{ name: "Login", handleClick: handleSignUp }} />

@@ -1,18 +1,46 @@
 #error {
-  border-bottom: solid red 3px;
+  background-color: #f54949;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
 }
 #message {
-  border-bottom: solid green 5px;
+  background-color: green;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
 }
 .toaster {
-  width: 8rem;
-  font-size: 1.5rem;
-  height: 5rem;
-  border: solid black 1px;
+  width: 13rem;
+  height: 3rem;
+  color: white;
+  font-weight: bold;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 1rem;
+  display: flex;
   top: 5rem;
   position: absolute;
   right: 3rem;
 }
-.toaster > h3 {
-  font-size: 1.5rem;
+.toaster > p {
+  margin: 0;
+}
+
+@media screen and (max-width: 850px) {
+  .toaster {
+    width: 80%;
+    height: 1.5rem;
+    top: 4rem;
+    left: 10vw;
+    right: 10vw;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
 }

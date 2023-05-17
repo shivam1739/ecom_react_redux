@@ -16,11 +16,12 @@ const initialState = {
 export const authReducer = (state = initialState, action) => {
   switch (action.type) {
     case USER_REGISTER_REQUEST:
-      return { ...state, loading: true };
+      return { ...state, loading: true, error: null };
     case USER_REGISTER_SUCCESS:
       return {
         ...state,
-        userInfo: action.payload,
+        message: action.payload.message,
+        userInfo: action.payload.data,
         loading: false,
         error: null,
       };

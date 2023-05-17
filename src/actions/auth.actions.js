@@ -10,7 +10,7 @@ import {
 
 export const userRegisterRequest = () => {
   return {
-    type: USER_REGISTER_REQUEST
+    type: USER_REGISTER_REQUEST,
   };
 };
 
@@ -34,10 +34,10 @@ export const userLoginRequest = () => {
   };
 };
 
-export const userLoginSuccess = (message) => {
+export const userLoginSuccess = (userInfo) => {
   return {
     type: USER_LOGIN_SUCCESS,
-    payload: message,
+    payload: userInfo,
   };
 };
 
@@ -48,9 +48,8 @@ export const userLoginFail = (error) => {
   };
 };
 
-export const userLogout=()=>{
-    return {
-        type:USER_LOGOUT,
-        payload:
-    }
-}
+export const userLogout = () => {
+  return {
+    type: USER_LOGOUT,
+  };
+};
