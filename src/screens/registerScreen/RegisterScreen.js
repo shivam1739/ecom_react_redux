@@ -6,7 +6,14 @@ import { PRIMARY_COLOR } from "../../utils/assets";
 import { NavLink } from "react-router-dom";
 import { userAuthRegister } from "../../services/auth.services";
 import Loading from "../../components/loading/Loading";
+import { useDispatch, useSelector } from "react-redux";
 import Toaster from "../../components/toaster/Toaster";
+import { useNavigate } from "react-router-dom";
+import {
+  userRegisterRequest,
+  userRegisterSuccess,
+  userRegisterFail,
+} from "../../actions/auth.actions";
 
 const RegisterScreen = () => {
   const initialState = {
@@ -20,37 +27,66 @@ const RegisterScreen = () => {
     passwordError: "",
   };
   const [userData, setUserDate] = useState(initialState);
-  const [error, setError] = useState(initError);
+  const [validationError, setValidationError] = useState(initError);
+  const dispatch = useDispatch();
+  const { loading, error, message } = useSelector((state) => state.authReducer);
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
-    setError(initError);
+    setValidationError(initError);
     const { name, value } = e.target;
     setUserDate({ ...userData, [name]: value });
   };
 
-  const handleSignUp = async (e) => {
+  const formValidation = (e) => {
     const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-    const passRegex = /^(?=.*[a-zA-Z])(?=.*[0-9])[a-zA-Z0-9]{8,}$/;
+    const passRegex =
+      /^(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,20}$/;
     e.preventDefault();
     if (userData.name.trim().length < 2) {
-      setError({ nameError: "* name should not be empty" });
-      return;
+      setValidationError({ nameError: "* name should not be empty" });
+      return false;
     } else if (!emailRegex.test(userData.email.trim())) {
-      setError({ emailError: "* invalid email" });
-      return;
+      setValidationError({ emailError: "* invalid email" });
+      return false;
     } else if (!passRegex.test(userData.password.trim())) {
-      setError({ passwordError: "* atleast min 8char and alphanumeric" });
-      return;
+      setValidationError({
+        passwordError: "*min 6char and alphanumeric with speacil char",
+      });
+      return false;
     }
-    console.log(userData);
-
-    const response = await userAuthRegister(userData);
-    console.log(response, "response from auth.js");
+    return true;
   };
 
+  const handleSignUp = async (e) => {
+    console.log(userData);
+    console.log(loading, "loading");
+
+    try {
+      if (!formValidation(e)) {
+        return;
+      }
+      dispatch(userRegisterRequest());
+      const response = await userAuthRegister(userData);
+
+      console.log(response.data.code, "====================scode");
+      console.log(response, "response from auth.js");
+
+      if (response.message == "succsessfull signup") {
+        response.data.password = undefined;
+        dispatch(userRegisterSuccess(response));
+        // setToasterData({ message: response.data.message });
+        navigate("/signIn");
+      }
+    } catch (error) {
+      dispatch(userRegisterFail("Email is already taken"));
+    }
+  };
+  console.log(loading, "loading");
   return (
     <>
-      <Toaster props={{ error: "success" }} />
+      {loading ? <Loading /> : null}
+      {error || message ? <Toaster props={{ error, message }} /> : null}
       <div className="main_signUp_con">
         <form style={{ border: `solid ${PRIMARY_COLOR}` }}>
           <h1>Logo</h1>
@@ -67,7 +103,7 @@ const RegisterScreen = () => {
               }}
             />
             <p className="error" name="nameError">
-              {error.nameError}
+              {validationError.nameError}
             </p>
           </div>
           <div className="field">
@@ -82,7 +118,7 @@ const RegisterScreen = () => {
               }}
             />
             <p className="error" name="emailError">
-              {error.emailError}
+              {validationError.emailError}
             </p>
           </div>
 
@@ -97,7 +133,7 @@ const RegisterScreen = () => {
                 setValue: handleChange,
               }}
             />
-            <p className="error">{error.passwordError}</p>
+            <p className="error">{validationError.passwordError}</p>
           </div>
 
           <Button props={{ name: "signUp", handleClick: handleSignUp }} />
