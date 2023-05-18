@@ -69,17 +69,14 @@ const RegisterScreen = () => {
       dispatch(userRegisterRequest());
       const response = await userAuthRegister(userData);
 
-      console.log(response.data.code, "====================scode");
-      console.log(response, "response from auth.js");
-
       if (response.message == "succsessfull signup") {
         response.data.password = undefined;
         dispatch(userRegisterSuccess(response));
         // setToasterData({ message: response.data.message });
         navigate("/signIn");
       }
-    } catch (error) {
-      dispatch(userRegisterFail("Email is already taken"));
+    } catch (err) {
+      dispatch(userRegisterFail(err.message));
     }
   };
   console.log(loading, "loading");

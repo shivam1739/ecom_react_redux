@@ -24,7 +24,7 @@ function App() {
 
         <Routes>
           <Route path="/signIn" element={<SigninScreen />} />
-          <Route path="/home" element={<HomeScreen />} />
+          <Route path="/" element={<HomeScreen />} />
           <Route path="/search/:keyword" element={<HomeScreen />} />
           <Route path="/page/:pageNumber" element={<HomeScreen />} />
           <Route
