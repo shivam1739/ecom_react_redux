@@ -14,10 +14,10 @@ export const userRegisterRequest = () => {
   };
 };
 
-export const userRegisterSuccess = (message) => {
+export const userRegisterSuccess = (response) => {
   return {
     type: USER_REGISTER_SUCCESS,
-    payload: message,
+    payload: response,
   };
 };
 

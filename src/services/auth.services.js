@@ -1,14 +1,21 @@
-import { userRegister } from "../utils/api";
+import { userRegister, userSignInApi } from "../utils/api";
 
 export const userAuthRegister = async (userInfo) => {
-  try {
-    console.log(userInfo, "===========++++++++++=========");
+  console.log(userInfo, "===========++++++++++=========");
 
-    const response = await userRegister(userInfo);
-    console.log(response, "response from services");
-    return response;
-  } catch (err) {
-    console.log(err);
-    throw new Error(err);
+  const response = await userRegister(userInfo);
+  console.log(response, "response from services");
+  if (response.error) {
+    throw new Error(response.error);
   }
+  return response;
+};
+
+export const userAuthSignIn = async (userInfo) => {
+  const response = await userSignInApi(userInfo);
+  // console.log(response, "fromService");
+  if (response.error) {
+    throw new Error(response.error);
+  }
+  return response;
 };
