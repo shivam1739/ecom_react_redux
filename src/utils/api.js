@@ -6,10 +6,7 @@ axios.defaults.headers.common["x-access-token"] = access_token;
 export const userRegister = async (userInfo) => {
   console.log(userInfo, ">..........................");
   try {
-    const response = await axios.post(
-      `${BASE_URL}/ecomm/api/v1/signup`,
-      userInfo
-    );
+    const response = await axios.post(`${BASE_URL}/signup`, userInfo);
     console.log(response, "===========@@==========");
     return response.data;
   } catch (error) {
@@ -20,14 +17,22 @@ export const userRegister = async (userInfo) => {
 
 export const userSignInApi = async (userInfo) => {
   try {
-    const response = await axios.post(
-      `${BASE_URL}/ecomm/api/v1/signin`,
-      userInfo
-    );
+    const response = await axios.post(`${BASE_URL}/signin`, userInfo);
     console.log(response, "====response form signInscreen====");
     return response.data;
   } catch (err) {
     console.log(err.response.data.message, "==erro");
     throw new Error(err.response.data.message);
+  }
+};
+
+export const getCategories = async () => {
+  try {
+    const response = await axios.get(`${BASE_URL}/categories`);
+    console.log(response, "from api");
+    return response.data;
+  } catch (err) {
+    console.log(err);
+    return { error: err };
   }
 };

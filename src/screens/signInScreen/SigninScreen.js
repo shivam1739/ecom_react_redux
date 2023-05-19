@@ -55,7 +55,9 @@ const SigninScreen = () => {
       setValidationError({ emailError: "* name should not be empty" });
       return false;
     } else if (!passRegex.test(userData.password.trim())) {
-      setValidationError({ passwordError: "* invalid email" });
+      setValidationError({
+        passwordError: "*min 6char and alphanumeric with speacil char",
+      });
       return false;
     }
     return true;

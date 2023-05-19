@@ -1,0 +1,8 @@
+.Carousel {
+  width: 100%;
+  height: 80%;
+}
+.CarouselItem > img {
+  height: 65vh;
+  object-fit: cover;
+}

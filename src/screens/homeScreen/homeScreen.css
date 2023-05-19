@@ -1,0 +1,20 @@
+.homeSC {
+  margin-top: 3rem;
+  width: 100vw;
+  height: auto;
+  min-height: 100vh;
+  overflow-y: scroll;
+}
+Hero {
+  height: 80vh;
+}
+.categorySection {
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 2rem;
+  overflow: scroll;
+  margin: 2rem auto;
+  height: 60vh;
+}
