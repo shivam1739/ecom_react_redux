@@ -13,8 +13,8 @@ Hero {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  gap: 2rem;
+  gap: 4rem;
   overflow: scroll;
-  margin: 2rem auto;
+  margin: 4rem auto;
   height: 60vh;
 }

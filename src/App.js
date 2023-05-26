@@ -15,6 +15,7 @@ import Footer from "./components/footer/Footer";
 import Header from "./components/header/Header";
 import RegisterScreen from "./screens/registerScreen/RegisterScreen";
 import SigninScreen from "./screens/signInScreen/SigninScreen";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
   return (
@@ -35,6 +36,7 @@ function App() {
           <Route path="/product/:id" element={<ProductScreen />} />
           <Route path="/cart/:id?" element={<CartScreen />} />
           <Route path="/register" element={<RegisterScreen />} />
+          <Route path="/register/seller" element={<RegisterScreen />} />
           <Route path="/shipping" element={<ShippingScreen />} />
           <Route path="/payment" element={<PaymentScreen />} />
           <Route path="/placeorder" element={<PlaceOrderScreen />} />

@@ -11,9 +11,8 @@ import { useDispatch, useSelector } from "react-redux";
 import Loading from "../../components/loading/Loading";
 import Toaster from "../../components/toaster/Toaster";
 import { loadCategories } from "../../services/home.service";
-
+import "bootstrap/dist/css/bootstrap.min.css";
 const HomeScreen = () => {
-  let array = [1, 2, 3, 4, 2, 8, 1, 947, 51, 89, 71, 9, 761, 47];
   const { loading, error, message, categories } = useSelector(
     (state) => state.categoryReducer
   );
@@ -44,9 +43,7 @@ const HomeScreen = () => {
         <h1>HomeScreen</h1>
         <Hero />
         <section className="categorySection">
-          {categories?.map((data) => {
-            return <CategoryCard props={data} />;
-          })}
+          <CategoryCard categories={categories} />;
         </section>
       </div>
     </>

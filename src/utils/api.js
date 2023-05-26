@@ -17,6 +17,7 @@ export const userRegister = async (userInfo) => {
 
 export const userSignInApi = async (userInfo) => {
   try {
+    console.log(userInfo);
     const response = await axios.post(`${BASE_URL}/signin`, userInfo);
     console.log(response, "====response form signInscreen====");
     return response.data;
