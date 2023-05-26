@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Input from "../../components/input/Input";
 import Button from "../../components/button/Button";
 import "./registerScreen.css";
@@ -29,9 +29,7 @@ const RegisterScreen = () => {
   const [userData, setUserDate] = useState(initialState);
   const [validationError, setValidationError] = useState(initError);
   const dispatch = useDispatch();
-  const { loading, error, message } = useSelector(
-    (state) => state.authauthReducer
-  );
+  const { loading, error, message } = useSelector((state) => state.authReducer);
   const navigate = useNavigate();
 
   const handleChange = (e) => {
