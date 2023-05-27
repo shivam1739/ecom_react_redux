@@ -1,12 +1,22 @@
-.c-card {
-  width: 33%;
-
-  /* min-height: 5rem; */
-
-  position: relative;
-}
-.category-card-img {
-  height: 100%;
+.card-name {
+  position: absolute;
   width: 100%;
-  object-fit: fill;
+  height: 100%;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.15);
+  border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+  offset: 0px, 4px rgba(0, 0, 0, 0.15);
+}
+.none {
+  visibility: hidden;
+}
+.cat-card:hover .none {
+  visibility: visible;
 }

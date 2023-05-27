@@ -12,6 +12,7 @@ import Loading from "../../components/loading/Loading";
 import Toaster from "../../components/toaster/Toaster";
 import { loadCategories } from "../../services/home.service";
 import "bootstrap/dist/css/bootstrap.min.css";
+import Seperator from "../../components/seperator/Seperator";
 const HomeScreen = () => {
   const { loading, error, message, categories } = useSelector(
     (state) => state.categoryReducer
@@ -42,8 +43,9 @@ const HomeScreen = () => {
       <div className="homeSC">
         <h1>HomeScreen</h1>
         <Hero />
+        <Seperator name={"categories"} />
         <section className="categorySection">
-          <CategoryCard categories={categories} />;
+          <CategoryCard categories={categories} />
         </section>
       </div>
     </>
