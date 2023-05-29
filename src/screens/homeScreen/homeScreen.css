@@ -16,5 +16,8 @@ Hero {
   gap: 4rem;
   overflow: scroll;
   margin: 4rem auto;
-  height: 60vh;
+  height: 70vh;
+}
+.hero {
+  margin-top: 3rem;
 }

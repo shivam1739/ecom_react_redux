@@ -3,6 +3,7 @@ import Input from "../input/Input";
 import Button from "../button/Button";
 import "./searchPopUp.css";
 import { BUTTON_COLOR } from "../../utils/assets";
+import ClickOutsideWrapper from "../../utils/ClickOutsideWrapper";
 
 const SearchPopUp = ({ props }) => {
   const [searchInput, setSearchInput] = useState("");
@@ -31,28 +32,32 @@ const SearchPopUp = ({ props }) => {
   };
 
   const handleSearch = () => {
-    props.setSearchBar(false);
     console.log("sdnasdjn");
   };
 
   return (
-    <div className="searchPopUp">
-      <Input
-        props={{
-          type: "text",
-          name: "searchBar",
-          placeholder: "search hear",
-          value: searchInput,
-          setValue: handleChage,
-          style: style,
-        }}
-        className="searchInp"
-      />
-      <Button
-        className="searchBtn"
-        props={{ name: "Search", style: btnStyle, handleClick: handleSearch }}
-      />
-    </div>
+    <ClickOutsideWrapper
+      classes={"searchPopUp"}
+      clickOutside={props.setSearchBar}
+    >
+      <>
+        <Input
+          props={{
+            type: "text",
+            name: "searchBar",
+            placeholder: "search hear",
+            value: searchInput,
+            setValue: handleChage,
+            style: style,
+          }}
+          className="searchInp"
+        />
+        <Button
+          className="searchBtn"
+          props={{ name: "Search", style: btnStyle, handleClick: handleSearch }}
+        />
+      </>
+    </ClickOutsideWrapper>
   );
 };
 

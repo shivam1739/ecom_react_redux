@@ -13,6 +13,7 @@ import Toaster from "../../components/toaster/Toaster";
 import { loadCategories } from "../../services/home.service";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Seperator from "../../components/seperator/Seperator";
+
 const HomeScreen = () => {
   const { loading, error, message, categories } = useSelector(
     (state) => state.categoryReducer
@@ -21,11 +22,13 @@ const HomeScreen = () => {
 
   const loadCategoriesData = async () => {
     try {
-      dispatch(getCategoryRequest());
-      const response = await loadCategories();
-      console.log(response);
-      if (response.message == "successfull fetched data") {
-        dispatch(getCategorySuccess(response.data));
+      if (!categories) {
+        dispatch(getCategoryRequest());
+        const response = await loadCategories();
+        console.log(response);
+        if (response.message == "successfull fetched data") {
+          dispatch(getCategorySuccess(response.data));
+        }
       }
     } catch (err) {
       dispatch(getCategoryFail());
@@ -41,12 +44,15 @@ const HomeScreen = () => {
       {loading ? <Loading /> : null}
       {error || message ? <Toaster props={{ error, message }} /> : null}
       <div className="homeSC">
-        <h1>HomeScreen</h1>
-        <Hero />
+        <section className="hero">
+          <Hero />
+        </section>
+
         <Seperator name={"categories"} />
         <section className="categorySection">
           <CategoryCard categories={categories} />
         </section>
+        <section>{/* <Search /> */}</section>
       </div>
     </>
   );

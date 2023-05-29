@@ -17,6 +17,7 @@
 .none {
   visibility: hidden;
 }
-.cat-card:hover .none {
+.cat-card:hover .none,
+.cat-active .none {
   visibility: visible;
 }

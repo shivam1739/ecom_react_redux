@@ -32,7 +32,7 @@ const Header = () => {
       <div className="menu">
         <div className={isMenu ? "menu-containt active" : "menu-containt"}>
           <ul className="navLi">
-            <NavLink className="link" to="/home">
+            <NavLink className="link" to="/">
               <li>Home</li>
             </NavLink>
             <NavLink className="link" to="/poroducts">

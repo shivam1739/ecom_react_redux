@@ -28,6 +28,14 @@
 @media screen and (max-width: 850px) {
   .userpop {
     width: 9rem;
+    top: 4rem;
+    right: 1.35rem;
+  }
+}
+
+@media screen and (max-width: 725px) {
+  .userpop {
+    width: 9rem;
     top: 7rem;
     right: 1.35rem;
   }
