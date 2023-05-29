@@ -6,6 +6,7 @@ import { BUTTON_COLOR } from "../../utils/assets";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { userLogout } from "../../actions/auth.actions";
+import ClickOutsideWrapper from "../../utils/ClickOutsideWrapper";
 
 const UserPopup = ({ props }) => {
   const [btnLogin, setBtn] = useState(() => false);
@@ -39,21 +40,22 @@ const UserPopup = ({ props }) => {
       localStorage.clear();
     }
     props.setUserPopup(false);
-    props.setMenu(false);
   };
   return (
-    <div className="userpop">
-      <i className="userIcon">
-        <FaUserEdit /> Edit profile
-      </i>
-      <Button
-        props={{
-          handleClick,
-          name: btnLogin ? "Logout" : "Login",
-          style: btnStyle,
-        }}
-      />
-    </div>
+    <ClickOutsideWrapper clickOutside={props.setUserPopup}>
+      <div className="userpop">
+        <i className="userIcon">
+          <FaUserEdit /> Edit profile
+        </i>
+        <Button
+          props={{
+            handleClick,
+            name: btnLogin ? "Logout" : "Login",
+            style: btnStyle,
+          }}
+        />
+      </div>
+    </ClickOutsideWrapper>
   );
 };
 

@@ -3,10 +3,13 @@ import { BASE_URL } from "./assets";
 const access_token = localStorage.getItem("x-access-token");
 axios.defaults.headers.common["x-access-token"] = access_token;
 
-export const userRegister = async (userInfo) => {
+export const userRegister = async (userInfo, userType) => {
   console.log(userInfo, ">..........................");
   try {
-    const response = await axios.post(`${BASE_URL}/signup`, userInfo);
+    const response = await axios.post(
+      `${BASE_URL}/signup/${userType || "customer"}`,
+      userInfo
+    );
     console.log(response, "===========@@==========");
     return response.data;
   } catch (error) {

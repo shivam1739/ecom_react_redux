@@ -16,7 +16,7 @@ const CategoryCard = (props) => {
           <Col
             key={index}
             sm={4}
-            className="cat-card position-relative d-flex  justify-content-center align-items-center"
+            className="cat-card position-relative d-flex  justify-content-center mt-4 align-items-center"
           >
             <Image
               src={category.image}
