@@ -29,7 +29,7 @@ const RegisterScreen = () => {
   const [userData, setUserDate] = useState(initialState);
   const [validationError, setValidationError] = useState(initError);
   const dispatch = useDispatch();
-  const { loading, error, message } = useSelector((state) => state.authReducer);
+  const { loading, error, message } = useSelector((state) => state.auth);
   const navigate = useNavigate();
 
   const handleChange = (e) => {

@@ -26,7 +26,7 @@ const SigninScreen = () => {
     passwordError: "",
   };
   const { loading, error, message, userInfo } = useSelector(
-    (state) => state.authReducer
+    (state) => state.auth
   );
   const [userData, setUserDate] = useState(initialState);
   const [validationError, setValidationError] = useState(initError);
@@ -70,11 +70,12 @@ const SigninScreen = () => {
     try {
       dispatch(userLoginRequest());
       const response = await userAuthSignIn(userData);
+      console.log(response, "respose form screen");
       if ((response.message = "successfully sign in")) {
         dispatch(userLoginSuccess(response));
         localStorage.setItem("x-access-token", response.token);
+        localStorage.setItem("userType", response.roles[0]);
       }
-      console.log(response, "respose form screen");
     } catch (err) {
       console.log(err, "=====errr======");
       dispatch(userLoginFail(err.message));
