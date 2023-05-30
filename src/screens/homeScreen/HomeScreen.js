@@ -13,10 +13,11 @@ import Toaster from "../../components/toaster/Toaster";
 import { loadCategories } from "../../services/home.service";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Seperator from "../../components/seperator/Seperator";
+import SideBar from "../../components/sideBar/SideBar";
 
 const HomeScreen = () => {
   const { loading, error, message, categories } = useSelector(
-    (state) => state.categoryReducer
+    (state) => state.category
   );
   const dispatch = useDispatch();
 
@@ -52,7 +53,7 @@ const HomeScreen = () => {
         <section className="categorySection">
           <CategoryCard categories={categories} />
         </section>
-        <section>{/* <Search /> */}</section>
+        <section></section>
       </div>
     </>
   );
