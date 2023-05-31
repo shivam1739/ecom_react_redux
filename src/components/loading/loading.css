@@ -1,13 +1,12 @@
 .loadingPage {
-  width: 99%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   backdrop-filter: blur(3px); /* Adjust the blur value as needed */
   background-color: rgba(3, 3, 3, 0.43);
-
-  position: absolute;
+  position: fixed;
   z-index: 10;
   top: 3rem;
   overflow: hidden;

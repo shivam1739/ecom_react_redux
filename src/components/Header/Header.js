@@ -10,7 +10,7 @@ import { HiUserCircle } from "react-icons/hi";
 import { NavLink } from "react-router-dom";
 import SearchPopUp from "../searchPopUp/SearchPopUp";
 import UserPopup from "../userPopup/UserPopup";
-
+import headerData from "../../constants/headerData";
 const Header = () => {
   const [isMenu, setMenu] = useState(false);
   const [searchBar, setSearchBar] = useState(false);
@@ -32,21 +32,13 @@ const Header = () => {
       <div className="menu">
         <div className={isMenu ? "menu-containt active" : "menu-containt"}>
           <ul className="navLi">
-            <NavLink className="link" to="/">
-              <li>Home</li>
-            </NavLink>
-            <NavLink className="link" to="/poroducts">
-              <li>Products</li>
-            </NavLink>
-            <NavLink className="link" to="">
-              <li>Categories</li>
-            </NavLink>
-            <NavLink className="link" to="">
-              <li>About</li>
-            </NavLink>
-            <NavLink className="link" to="">
-              <li>Countact Us</li>
-            </NavLink>
+            {headerData().map((item, idx) => {
+              return (
+                <NavLink className="link" key={idx} to={item.path}>
+                  <li>{item.title}</li>
+                </NavLink>
+              );
+            })}
           </ul>
           <div className="right-con">
             <BiSearchAlt2

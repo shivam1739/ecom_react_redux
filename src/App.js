@@ -21,26 +21,21 @@ import { useDispatch, useSelector } from "react-redux";
 import "bootstrap/dist/css/bootstrap.min.css";
 import SideBar from "./components/sideBar/SideBar";
 import SellerProtectedRoute from "./utils/SellerProtectedRoute";
-import SellerDashBorad from "./screens/sellerDashBoard/SellerDashBorad";
+import SellerDashBorad from "./screens/sellerDashBoard/SellerDashBoard";
+import Layout from "./utils/Layout";
 
 function App() {
   const { userInfo } = useSelector((state) => state.auth);
 
-  useEffect(() => {
-    const roles = localStorage.getItem("userType");
-    // if (roles == "seller") {
-    //   setSideBarData(seller);
-    // } else if (roles == "admin") {
-    //   setSideBarData(admin);
-    // }
-  }, [userInfo]);
+  useEffect(() => {}, []);
   // console.log(sideBarData, "sideBarData");
 
   console.log(window.location.href, "aap.js");
   return (
     <div className="App">
       <Router>
-        <Header />
+        <Layout />
+
         <Routes>
           <Route path="/signIn" element={<SigninScreen />} />
           <Route path="/" element={<HomeScreen />} />
@@ -53,13 +48,13 @@ function App() {
           />
           <Route path="/poroducts" exact element={<ProductsScreen />} />
 
-          {/* <Route element={<SideBar />}> */}
           <Route element={<SellerProtectedRoute />}>
-            <Route element={<SideBar />}>
-              <Route path="/seller" element={<SellerDashBorad />} />
-            </Route>
+            <Route
+              index
+              path="/seller/dashboard"
+              element={<SellerDashBorad />}
+            />
           </Route>
-          {/* </Route> */}
 
           <Route path="/product/:id" element={<ProductScreen />} />
           <Route path="/cart/:id?" element={<CartScreen />} />

@@ -8,7 +8,7 @@ import {
 import { FiLogOut } from "react-icons/fi";
 const sellerSidebarItems = [
   {
-    path: "/",
+    path: "/seller/dashBoard",
     name: "Dashboard",
     icon: <AiOutlineDashboard />,
   },
