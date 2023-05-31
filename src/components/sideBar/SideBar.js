@@ -1,9 +1,8 @@
 import "./sideBar.css";
 import React, { useState } from "react";
-import sellerSidebarItems from "../../utils/sideBarData";
 import { HiOutlineChevronLeft, HiOutlineChevronRight } from "react-icons/hi";
-
 import { NavLink } from "react-router-dom";
+import sellerSidebarItems from "../../constants/sideBarData";
 
 const SideBar = () => {
   const [showSideBar, setShowSideBar] = useState(true);

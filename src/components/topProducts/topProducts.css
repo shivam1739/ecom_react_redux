@@ -1,0 +1,28 @@
+.top-product-container {
+  padding: 1rem;
+  height: auto;
+  width: auto;
+  color: white;
+  text-align: left;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+h4 {
+  margin: 0;
+  padding: 0;
+}
+.topProductTable {
+  height: auto;
+  width: 100%;
+}
+.t-body {
+  display: contents;
+  justify-content: start;
+}
+
+.table-td {
+  padding: 8px 9px;
+}
