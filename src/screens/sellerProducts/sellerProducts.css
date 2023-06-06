@@ -1,0 +1,13 @@
+.sellerProducts {
+  display: flex;
+  justify-content: right;
+  align-items: last baseline;
+  padding: 4rem 6rem;
+}
+
+.product-table {
+  width: 90%;
+  /* margin: auto; */
+  height: 100%;
+  overflow-y: auto;
+}

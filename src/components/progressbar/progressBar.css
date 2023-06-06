@@ -4,11 +4,16 @@
   background-color: #f0f0f0;
   border-radius: 5px;
   overflow: hidden;
+  display: inline-flex;
 }
 
 .progress {
   height: 100%;
-  transition: width 0.2s ease-in-out;
+  transition: width 0.02s ease-in-out;
+  -webkit-transition: width 0.02s ease-in-out;
+  -moz-transition: width 0.02s ease-in-out;
+  -ms-transition: width 0.02s ease-in-out;
+  -o-transition: width 0.02s ease-in-out;
 }
 
 .progress-label {

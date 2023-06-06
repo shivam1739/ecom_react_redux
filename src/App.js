@@ -23,10 +23,10 @@ import SideBar from "./components/sideBar/SideBar";
 import SellerProtectedRoute from "./utils/SellerProtectedRoute";
 import SellerDashBorad from "./screens/sellerDashBoard/SellerDashBoard";
 import Layout from "./utils/Layout";
+import SellerProducts from "./screens/sellerProducts/SellerProducts";
 
 function App() {
   const { userInfo } = useSelector((state) => state.auth);
-
   useEffect(() => {}, []);
   // console.log(sideBarData, "sideBarData");
 
@@ -41,6 +41,7 @@ function App() {
           <Route path="/" element={<HomeScreen />} />
           <Route path="/search/:keyword" element={<HomeScreen />} />
           <Route path="/page/:pageNumber" element={<HomeScreen />} />
+
           <Route
             path="/search/:keyword/page/:pageNumber"
             exact
@@ -49,11 +50,8 @@ function App() {
           <Route path="/poroducts" exact element={<ProductsScreen />} />
 
           <Route element={<SellerProtectedRoute />}>
-            <Route
-              index
-              path="/seller/dashboard"
-              element={<SellerDashBorad />}
-            />
+            <Route path="/seller/dashboard" element={<SellerDashBorad />} />
+            <Route path={`/seller/my-products`} element={<SellerProducts />} />
           </Route>
 
           <Route path="/product/:id" element={<ProductScreen />} />

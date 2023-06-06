@@ -13,7 +13,7 @@ const sellerSidebarItems = [
     icon: <AiOutlineDashboard />,
   },
   {
-    path: "/",
+    path: "/seller/my-products",
     name: "Product",
     icon: <BsFillHandbagFill />,
   },

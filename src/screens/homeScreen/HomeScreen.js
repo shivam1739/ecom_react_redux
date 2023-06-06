@@ -14,6 +14,7 @@ import { loadCategories } from "../../services/home.service";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Seperator from "../../components/seperator/Seperator";
 import SideBar from "../../components/sideBar/SideBar";
+import Product from "../../components/Product/Product";
 
 const HomeScreen = () => {
   const { loading, error, message, categories } = useSelector(

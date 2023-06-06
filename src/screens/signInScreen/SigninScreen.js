@@ -75,6 +75,7 @@ const SigninScreen = () => {
         dispatch(userLoginSuccess(response));
         localStorage.setItem("x-access-token", response.token);
         localStorage.setItem("userType", response.roles[0]);
+        localStorage.setItem("userId", response.data.id);
       }
     } catch (err) {
       console.log(err, "=====errr======");

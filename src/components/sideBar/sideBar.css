@@ -3,19 +3,21 @@
   color: white;
   height: 100vh;
   width: auto;
+
   min-width: 4rem;
   top: 0;
   border-right: solid 1px #87888c;
   position: fixed;
+  z-index: 10;
   padding: 5rem 1rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  transition: 0.3 ease-in-out;
-  -webkit-transition: 0.3 ease-in-out;
-  -moz-transition: 0.3 ease-in-out;
-  -ms-transition: 0.3 ease-in-out;
-  -o-transition: 0.3 ease-in-out;
+  transition: width 0.3s ease-in-out;
+  -webkit-transition: width 0.3s ease-in-out;
+  -moz-transition: width 0.3s ease-in-out;
+  -ms-transition: width 0.3s ease-in-out;
+  -o-transition: width 0.3s ease-in-out;
 }
 .top-section {
   background-color: burlywood;
@@ -57,6 +59,13 @@
 
 .on-off {
   font-size: 1.5rem;
+  width: 100%;
+  /* border: solid 1px #87888c; */
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
 }
 .on-off:hover {
   background-color: #a9dfd8;

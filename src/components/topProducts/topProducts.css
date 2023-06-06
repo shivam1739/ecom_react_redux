@@ -10,10 +10,11 @@
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
 }
-h4 {
+/* h4 {
   margin: 0;
   padding: 0;
-}
+} */
+
 .topProductTable {
   height: auto;
   width: 100%;

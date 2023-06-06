@@ -28,7 +28,7 @@ const CategoryCard = (props) => {
                 props={{
                   name: category.name,
                   style: {
-                    width: "30%",
+                    width: "auto",
                     height: "2.5rem",
                     backgroundColor: "#E0EFF6",
                     color: " #07484A",
@@ -36,6 +36,7 @@ const CategoryCard = (props) => {
                     fontWeight: "bolder",
                     borderRadius: "5px",
                     border: "none",
+                    minWidth: "6rem",
                   },
                 }}
               />
